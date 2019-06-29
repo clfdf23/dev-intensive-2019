@@ -3,16 +3,27 @@ package ru.skillbranch.devintensive
 import org.junit.Test
 
 import org.junit.Assert.*
+import ru.skillbranch.devintensive.extensions.TimeUnits
+import ru.skillbranch.devintensive.extensions.add
+import ru.skillbranch.devintensive.extensions.format
+import ru.skillbranch.devintensive.extensions.toUserView
 import ru.skillbranch.devintensive.models.BaseMessage
 import ru.skillbranch.devintensive.models.Chat
 import ru.skillbranch.devintensive.models.User
 import ru.skillbranch.devintensive.utils.Utils
+import java.util.*
 
 /**
  * Example local unit test, which will execute on the development machine (host).
  *
  * See [testing documentation](http://d.android.com/tools/testing).
  */
+
+const val SECOND = 1000L
+const val MINUTE = 60 * SECOND
+const val HOUR = 60 * MINUTE
+const val DAY = 24 * HOUR
+
 class ExampleUnitTest {
     @Test
     fun addition_isCorrect() {
@@ -45,5 +56,36 @@ class ExampleUnitTest {
     @Test
     fun test_transliteration() {
         println(Utils.transliterations("Вячеслав Рузанов", "_"))
+    }
+
+    @Test
+    fun test_dateHumanization() {
+        val user = User.makeUser("John Wick")
+        val user2 = user.copy(lastVisit = Date().add(465, TimeUnits.DAY))
+        user2.toUserView().printMe()
+        println(user2)
+    }
+
+    @Test
+    fun test_toInitials() {
+        println(Utils.toInitials("ывапф", "аузанов"))
+    }
+
+    @Test
+    fun test_parseFullName() {
+        println(Utils.parseFullName("Jonh"))
+    }
+
+    @Test
+    fun test_dateFormat() {
+        println(Date().format("HH:mm"))
+    }
+    @Test
+    fun temp() {
+        val x = 1
+        when (x) {
+            in 0..1 -> println(1)
+            in 1..2 -> println(2)
+        }
     }
 }
