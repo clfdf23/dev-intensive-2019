@@ -30,9 +30,6 @@ fun Date.add(value: Int, units: TimeUnits = TimeUnits.SECOND): Date {
 fun Date.humanizeDiff(date: Date = Date()): String {
     val diff = (date.time - this.time)
     val seconds = diff / SECOND
-    println("${diff / SECOND} sec")
-    println("${diff / MINUTE} min")
-    println("${diff / HOUR} h")
     var output = ""
     output += when (diff / SECOND) {
         in -1L..1L -> "только что"

@@ -88,4 +88,15 @@ class ExampleUnitTest {
             in 1..2 -> println(2)
         }
     }
+    @Test
+    fun test_builder() {
+        var user = User.Builder().id("324234")
+            .firstName("Вячеслав")
+            .lastName("Пузанов")
+            .avatar("url")
+            .rating(10)
+            .lastVisit(Date().add(-30))
+            .build()
+        user.toUserView().printMe()
+    }
 }
