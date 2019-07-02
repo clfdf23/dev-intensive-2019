@@ -13,7 +13,7 @@ object Utils {
         return Pair(firstName, lastName)
     }
 
-    fun transliterations(payload: String, divider: String = " "): String {
+    fun transliteration(payload: String, divider: String = " "): String {
         var output = ""
         payload.forEach {
             output+=when(it) {
