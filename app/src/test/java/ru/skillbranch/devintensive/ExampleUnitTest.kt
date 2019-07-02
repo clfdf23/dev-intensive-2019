@@ -55,7 +55,7 @@ class ExampleUnitTest {
     }
     @Test
     fun test_transliteration() {
-        println(Utils.transliterations("Вячеслав Рузанов", "_"))
+        println(Utils.transliteration("Вячеслав Рузанов", "_"))
     }
 
     @Test
