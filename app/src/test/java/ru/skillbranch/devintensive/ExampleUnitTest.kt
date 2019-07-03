@@ -3,10 +3,7 @@ package ru.skillbranch.devintensive
 import org.junit.Test
 
 import org.junit.Assert.*
-import ru.skillbranch.devintensive.extensions.TimeUnits
-import ru.skillbranch.devintensive.extensions.add
-import ru.skillbranch.devintensive.extensions.format
-import ru.skillbranch.devintensive.extensions.toUserView
+import ru.skillbranch.devintensive.extensions.*
 import ru.skillbranch.devintensive.models.BaseMessage
 import ru.skillbranch.devintensive.models.Chat
 import ru.skillbranch.devintensive.models.User
@@ -98,5 +95,19 @@ class ExampleUnitTest {
             .lastVisit(Date().add(-30))
             .build()
         user.toUserView().printMe()
+    }
+    @Test
+    fun test_stripHtml() {
+        println("${"<p class=\"title\">  Образовательное                IT-сообщество Skill   Branch     </p>".stripHtml()}@")
+    }
+
+    @Test
+    fun test_plural() {
+        println(TimeUnits.DAY.plural(436723422))
+    }
+
+    @Test
+    fun test_truncate() {
+        println("Bender Bending Rodriguez — дословно «Сгибальщик Сгибающий Родригес»".truncate(66))
     }
 }
