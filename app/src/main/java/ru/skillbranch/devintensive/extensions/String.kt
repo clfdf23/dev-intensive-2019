@@ -8,10 +8,11 @@ fun String.stripHtml(): String {
 }
 
 fun String.truncate(num: Int = 16): String {
-    if (num >= this.length - 1)
-        return this
-    return when (this[num]) {
-        ' ' -> "${this.substring(0 until num)}..."
-        else -> "${this.substring(0..num)}..."
+    val outString = this.trim()
+    if (num > outString.length - 1)
+        return outString
+    return when (outString[num - 1]) {
+        ' ' -> "${outString.substring(0 until num - 1)}..."
+        else -> "${outString.substring(0 until num)}..."
     }
 }
