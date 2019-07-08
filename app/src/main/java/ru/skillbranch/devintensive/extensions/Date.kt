@@ -2,7 +2,6 @@ package ru.skillbranch.devintensive.extensions
 
 import java.text.SimpleDateFormat
 import java.util.*
-import kotlin.math.abs
 
 const val SECOND = 1000L
 const val MINUTE = 60 * SECOND
@@ -13,7 +12,6 @@ fun Date.format(pattern: String = "HH:mm:ss dd.MM.yy"): String {
     val dateFormat = SimpleDateFormat(pattern, Locale("ru"))
     return dateFormat.format(this)
 }
-
 fun Date.add(value: Int, units: TimeUnits = TimeUnits.SECOND): Date {
     var time = this.time
 
@@ -65,7 +63,7 @@ enum class TimeUnits {
                 return "$value секунд"
             else {
                 when(value % 10) {
-                    1 -> return "1 секунду"
+                    1 -> return "$value секунду"
                     in 2..4 -> return "$value секунды"
                     in 5..9, 0 -> return "$value секунд"
                 }
@@ -76,7 +74,7 @@ enum class TimeUnits {
                 return "$value минут"
             else {
                 when (value % 10) {
-                    1 -> return "1 минуту"
+                    1 -> return "$value минуту"
                     in 2..4 -> return "$value минуты"
                     in 5..9, 0 -> return "$value минут"
                 }
@@ -87,7 +85,7 @@ enum class TimeUnits {
                 return "$value часов"
             else {
                 when (value % 10) {
-                    1 -> return "1 час"
+                    1 -> return "$value час"
                     in 2..4 -> return "$value часа"
                     in 5..9, 0 -> return "$value часов"
                 }
@@ -98,7 +96,7 @@ enum class TimeUnits {
                 return "$value дней"
             else {
                 when (value % 10) {
-                    1 -> return "1 день"
+                    1 -> return "$value день"
                     in 2..4 -> return "$value дня"
                     in 5..9, 0 -> return "$value дней"
                 }

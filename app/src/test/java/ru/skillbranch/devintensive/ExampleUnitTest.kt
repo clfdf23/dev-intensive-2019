@@ -103,7 +103,7 @@ class ExampleUnitTest {
 
     @Test
     fun test_plural() {
-        println(TimeUnits.DAY.plural(436723422))
+        println(TimeUnits.DAY.plural(436723421))
     }
 
     @Test
